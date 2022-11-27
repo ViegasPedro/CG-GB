@@ -1,0 +1,19 @@
+#include <GL/glew.h> 
+#include <GLFW/glfw3.h> 
+#include <stdio.h>
+#include <math.h>
+#include <string>
+#include <glm/glm.hpp> 
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <stdlib.h>
+
+using std::vector;
+using std::string;
+using glm::vec2;
+using glm::vec3;
+using glm::mat4;

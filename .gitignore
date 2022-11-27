@@ -1,0 +1,10 @@
+# pastas
+\.vs
+
+# arquivos
+*.exe
+*.pdb
+*.tlog
+*.log
+*.idb
+*.ilk

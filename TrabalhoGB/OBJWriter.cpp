@@ -33,10 +33,10 @@ void OBJWriter::writeVertices() {
 
 void OBJWriter::writeTextures() {
 	this->objFile << std::endl;
-	this->objFile << "vt " << 1.0 << " " << 1.0 << std::endl;
-	this->objFile << "vt " << 1.0 << " " << 0.0 << std::endl;
-	this->objFile << "vt " << 0.0 << " " << 1.0 << std::endl;
-	this->objFile << "vt " << 0.0 << " " << 0.0 << std::endl;
+	this->objFile << "vt " << "0.0" << " " << "0.0" << std::endl;
+	this->objFile << "vt " << "0.0" << " " << "1.0" << std::endl;
+	this->objFile << "vt " << "1.0" << " " << "0.0" << std::endl;
+	this->objFile << "vt " << "1.0" << " " << "1.0" << std::endl;
 	this->objFile << std::endl;
 }
 
@@ -65,20 +65,20 @@ void OBJWriter::writeNormals() {
 void OBJWriter::writeFaces() {
 	int facesCount = 0;
 
-	for (int i = 1; i < internalVec->size() - 1; i++) {
-		int j = i;
+	for (int i = 0; i < internalVec->size() - 1; i++) {
+		int j = i+1;
 		this->objFile <<
 			"f " <<
-			j << "/" << 2 << "/" << ++facesCount << " " <<
-			j + 1 << "/" << 4 << "/" << facesCount << " " <<
-			j + internalVec->size() << "/" << 3 << "/" << facesCount <<
+			j                       << "/" << 1 << "/" << ++facesCount << " " <<
+			j + 1                   << "/" << 2 << "/" << facesCount << " " <<
+			j + internalVec->size() << "/" << 4 << "/" << facesCount <<
 			std::endl;
 
 		this->objFile <<
 			"f " <<
-			j + internalVec->size() << "/" << 3 << "/" << ++facesCount << " " <<
-			j + 1 << "/" << 1 << "/" << facesCount << " " <<
-			j + 1 + internalVec->size() << "/" << 2 << "/" << facesCount <<
+			j + internalVec->size()     << "/" << 4 << "/" << ++facesCount << " " <<
+			j + 1                       << "/" << 2 << "/" << facesCount << " " <<
+			j + 1 + internalVec->size() << "/" << 3 << "/" << facesCount <<
 			std::endl;
 	}
 }

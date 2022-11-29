@@ -311,7 +311,7 @@ void createBsplineInternalAndExternal() {
 		bsplineInternal.push_back(CxInternal);
 		bsplineInternal.push_back(CyInternal);
 		bsplineInternal.push_back(0.0);
-		
+
 		glm::vec3* pointInternal = new glm::vec3(CxInternal, CyInternal, 0.0);
 		bsplineInternalVec->push_back(pointInternal);
 
@@ -408,7 +408,7 @@ void createSpeedway() {
 void writeTxt() {
 	ofstream file;
 	file.open("output/originalCurve.txt");
-	for (int i = 0; i < bsplineVec->size(); i++) {
+	for (int i = 1; i < bsplineVec->size(); i++) {
 		convertCoordinates(bsplineVec->at(i)->x, bsplineVec->at(i)->y);
 		file << "v " << bsplineVec->at(i)->x << " " << bsplineVec->at(i)->z << " " << bsplineVec->at(i)->y << endl;
 	}
@@ -435,10 +435,12 @@ void writeObj() {
 }
 
 void normalizeInternalExternalCords() {
-	for (int i = 0; i < bsplineInternalVec->size(); i++) {
+	//convertCoordinates(bsplineInternalVec->at(0)->x, bsplineInternalVec->at(0)->y);
+	for (int i = 1; i < bsplineInternalVec->size(); i++) {
 		convertCoordinates(bsplineInternalVec->at(i)->x, bsplineInternalVec->at(i)->y);
 	}
-	for (int i = 0; i < bsplineExternalVec->size(); i++) {
+	//convertCoordinates(bsplineExternalVec->at(0)->x, bsplineExternalVec->at(0)->y);
+	for (int i = 1; i < bsplineExternalVec->size(); i++) {
 		convertCoordinates(bsplineExternalVec->at(i)->x, bsplineExternalVec->at(i)->y);
 	}
 }
